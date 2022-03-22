@@ -4,19 +4,37 @@ import * as React from 'react';
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import HomeScreen from '../screens/HomeScreen';
 import {Feather as Icon} from '@expo/vector-icons';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import Chats from '../screens/Chats';
+import Status from '../screens/Status';
+import Calls from '../screens/Calls';
 
 interface MainProps {}
 
 const Stack = createNativeStackNavigator();
+const Tab = createMaterialTopTabNavigator();
+
+const MaterialTopTab = () => {
+    return(
+        <Tab.Navigator>
+            <Tab.Screen name="conversa" component={Chats}></Tab.Screen>
+            <Tab.Screen name="status" component={Status}></Tab.Screen>
+            <Tab.Screen name="chamadas" component={Calls}></Tab.Screen>
+        </Tab.Navigator>
+    )
+}
 
 const Main = ({}: MainProps) => {
   return (
     <NavigationContainer>
         <Stack.Navigator>
             <Stack.Screen 
-                options={({navigation, route}) => ({
-                    title: 'Wpp',
-                    headerRight: () => {
+              options={({navigation, route}) => ({
+                title: 'Wpp',
+                headerStyle:{
+                  elevation: 0,
+                },
+                headerRight: () => {
                         return (
                             <View style={{flexDirection: 'row', alignItems:'center'}}>
                                 <TouchableOpacity 
@@ -35,7 +53,7 @@ const Main = ({}: MainProps) => {
                 },
               })}
               name="home" 
-              component={HomeScreen}></Stack.Screen>
+              component={MaterialTopTab}></Stack.Screen>
           </Stack.Navigator>
     </NavigationContainer>
   );

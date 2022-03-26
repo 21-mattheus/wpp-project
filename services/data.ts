@@ -10,7 +10,7 @@ export const listaUsuarios:listaUsuariosProps[] = [
 
     {
         id: 2,
-        nome: 'Henrique',
+        nome: 'Carlos',
         ultimaMensagem: 'Assistiu o jogo?',
         fotoPerfil: '',
         ultimoVisto: '14:00 pm',
@@ -18,7 +18,7 @@ export const listaUsuarios:listaUsuariosProps[] = [
 
     {
         id: 3,
-        nome: 'Silva',
+        nome: 'Luiz',
         ultimaMensagem: 'Olá, tudo bem?',
         fotoPerfil: '',
         ultimoVisto: '11:00 am',
@@ -26,7 +26,7 @@ export const listaUsuarios:listaUsuariosProps[] = [
 
     {
         id: 4,
-        nome: 'Fulano',
+        nome: 'Martinha',
         ultimaMensagem: 'Olá, tudo bem?',
         fotoPerfil: '',
         ultimoVisto: '17:00 pm',

@@ -16,7 +16,14 @@ const Tab = createMaterialTopTabNavigator();
 
 const MaterialTopTab = () => {
     return(
-        <Tab.Navigator>
+        <Tab.Navigator
+          tabBarOptions={{
+            style:{backgroundColor: 'teal'},
+            activeTintColor: '#fff',
+            labelStyle: {fontWeight: 'bold'},
+            indicatorStyle: {backgroundColor: '#fff'}
+          }}
+        >
             <Tab.Screen name="conversa" component={Chats}></Tab.Screen>
             <Tab.Screen name="status" component={Status}></Tab.Screen>
             <Tab.Screen name="chamadas" component={Calls}></Tab.Screen>
@@ -26,13 +33,17 @@ const MaterialTopTab = () => {
 
 const Main = ({}: MainProps) => {
   return (
+    
     <NavigationContainer>
         <Stack.Navigator>
             <Stack.Screen 
               options={({navigation, route}) => ({
                 title: 'Wpp',
+                headerTintColor: '#fff',
                 headerStyle:{
                   elevation: 0,
+                  backgroundColor: 'teal',
+                  color: '#fff',
                 },
                 headerRight: () => {
                         return (
@@ -40,13 +51,13 @@ const Main = ({}: MainProps) => {
                                 <TouchableOpacity 
                                 onPress={() => console.log('Procura')} 
                                 style={{marginHorizontal: 5}}>
-                                    <Icon name='search' size={26}></Icon>
+                                    <Icon name='search' size={26} color={'#fff'}></Icon>
                                 </TouchableOpacity>
 
                                 <TouchableOpacity 
                                 onPress={() => console.log('Menu Iniciado')} 
                                 style={{marginHorizontal: 5}}>
-                                    <Icon name='more-vertical' size={26}></Icon>
+                                    <Icon name='more-vertical' size={26} color={'#fff'}></Icon>
                                 </TouchableOpacity>
                             </View>
                         );

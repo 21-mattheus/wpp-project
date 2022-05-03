@@ -2,9 +2,13 @@ import * as React from 'react';
 import { View, Text, Dimensions, StyleSheet, Button } from 'react-native';
 import { listaUsuarios } from '../../services/data';
 import { listaUsuariosProps } from '../../services/interface';
-import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
+import { FlatList, TouchableOpacity, TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import {Feather as Icon} from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import ChatRoom from '../ChatRoom/ChatRoomScreen';
+import Contacts from '../Contacts/Contacts';
+
 
 const {width:wWidth, height:wHeight} = Dimensions.get('window');
 
@@ -12,29 +16,40 @@ interface ChatsProps {}
 
 const Chats = ({}: ChatsProps) => {
     const renderItem = ({item} : {item:listaUsuariosProps}) => {
-        return (
-          <View style={styles.cardContainer}>
+    
+    //const onClick = () => {
+      //console.log(onmessage, 'clicado em ${listaUsuarios.nome}')
+    //}
+      
+      return (
+          <TouchableWithoutFeedback>
+            <View style={styles.cardContainer}>
 
-            <View style={styles.avatarContainer}>
+              <View style={styles.avatarContainer}>
             
-              <View style={styles.avatarBox}></View>
+                <View style={styles.avatarBox}></View>
 
-              <View style={{paddingHorizontal: 12}}>
-                <Text>{item.nome}</Text>
-                <Text style={styles.silentText}>{item.ultimaMensagem}</Text>
+                <View style={{paddingHorizontal: 12}}>
+                  <Text>{item.nome}</Text>
+                  <Text style={styles.silentText}>{item.ultimaMensagem}</Text>
+                </View>
+
+              </View>
+
+              <View>
+                <Text style={styles.silentText}>{item.ultimoVisto}</Text>
               </View>
 
             </View>
-
-            <View>
-              <Text style={styles.silentText}>{item.ultimoVisto}</Text>
-            </View>
-
-          </View>
+          </TouchableWithoutFeedback>
         ); 
     };
 
+    const navigation = useNavigation
+
+  const newLocal = "contacts";
     return (
+
       <View style={styles.root}>
         <SafeAreaView>
           <FlatList data={listaUsuarios} renderItem={renderItem}>
@@ -43,17 +58,20 @@ const Chats = ({}: ChatsProps) => {
             renderItem={renderItem}
           </FlatList>
         </SafeAreaView>
-        <View>
-          <View 
-            style={styles.floatingContainer}>
-            <View style={styles.iconBox}>
-              <Button 
-              icon = {{name: 'message-square', color: '#fff'}} 
-              size={30} 
-              color={'#FFFFFF'}></Button>
+
+        <TouchableOpacity onPress={() => console.log('Contatos')}>
+          <View>
+            <View 
+              style={styles.floatingContainer}>
+              <View style={styles.iconBox}>
+                <Button 
+                icon = {{name: 'message-square', color: '#fff'}} 
+                size={30} 
+                color={'#ffffff'}></Button>
+              </View>
             </View>
           </View>
-        </View>
+        </TouchableOpacity>
       </View>
     );
 };
@@ -111,3 +129,6 @@ const styles = StyleSheet.create({
     color: 'grey',
   },
 })
+
+
+

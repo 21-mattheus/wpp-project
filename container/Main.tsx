@@ -1,18 +1,42 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { CompositeNavigationProp, NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator, StackNavigationProp } from '@react-navigation/native-stack';
 import * as React from 'react';
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import HomeScreen from '../screens/HomeScreen';
 import {Feather as Icon} from '@expo/vector-icons';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { createMaterialTopTabNavigator, MaterialTopTabNavigationProp } from '@react-navigation/material-top-tabs';
 import Chats from '../screens/Chats';
 import Status from '../screens/Status';
 import Calls from '../screens/Calls';
+import ChatRoom from '../screens/ChatRoom/ChatRoomScreen';
+import ChatRoomScreen from '../screens/ChatRoom/ChatRoomScreen';
+import Contacts from '../screens/Contacts/Contacts';
+import { Camera } from '../screens/CameraScreen/CameraScreen';
+//import Login from '../screens/Login/Login';
+//import Contacts from '../screens/Contacts/Contacts';
 
 interface MainProps {}
 
 const Stack = createNativeStackNavigator();
 const Tab = createMaterialTopTabNavigator();
+
+export type MatrimonyTabParamList = {
+  chats: undefined;
+  status: undefined;
+  calls: undefined;
+  camera: undefined;
+};
+
+export type WhatsAppStackParamList = {
+  home: undefined;
+};
+
+export type combineTabWithStackProps<
+  T extends keyof MatrimonyTabParamList
+> = CompositeNavigationProp<
+  MaterialTopTabNavigationProp<MatrimonyTabParamList, T>,
+  StackNavigationProp<WhatsAppStackParamList>
+>;
 
 const MaterialTopTab = () => {
     return(
@@ -24,6 +48,13 @@ const MaterialTopTab = () => {
             indicatorStyle: {backgroundColor: '#fff'}
           }}
         >
+            <Tab.Screen name="camera" options={{
+              tabBarLabel: () => (
+                <View>
+                  <Icon name='camera' size={24} color={'#fff'}></Icon>
+                </View>
+              )
+            }} component={Camera}></Tab.Screen>
             <Tab.Screen name="conversa" component={Chats}></Tab.Screen>
             <Tab.Screen name="status" component={Status}></Tab.Screen>
             <Tab.Screen name="chamadas" component={Calls}></Tab.Screen>
@@ -38,7 +69,7 @@ const Main = ({}: MainProps) => {
         <Stack.Navigator>
             <Stack.Screen 
               options={({navigation, route}) => ({
-                title: 'Wpp',
+                title: 'Menssager',
                 headerTintColor: '#fff',
                 headerStyle:{
                   elevation: 0,
@@ -64,7 +95,23 @@ const Main = ({}: MainProps) => {
                 },
               })}
               name="home" 
-              component={MaterialTopTab}></Stack.Screen>
+              component={MaterialTopTab}
+              ></Stack.Screen>
+              
+              <Stack.Screen
+              name="chatRoom"
+              component={ChatRoomScreen}
+              options={{ title: "Chat Room"}}
+              ></Stack.Screen>
+
+              <Stack.Screen
+              name="contacts"
+              component={Contacts}
+              options={{ title: "Selecione um contato"}}
+              ></Stack.Screen>
+
+              
+                   
           </Stack.Navigator>
     </NavigationContainer>
   );

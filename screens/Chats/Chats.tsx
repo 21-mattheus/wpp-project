@@ -59,7 +59,7 @@ const Chats = ({}: ChatsProps) => {
           </FlatList>
         </SafeAreaView>
 
-        <TouchableOpacity onPress={() => console.log('Contatos')}>
+        <TouchableOpacity onPress={() => console.log('Contatos Iniciado')}>
           <View>
             <View 
               style={styles.floatingContainer}>

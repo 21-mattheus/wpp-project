@@ -9,7 +9,7 @@ import Submit from '../../components/Submit';
 
 const LoginScreen = props => {
   return (
-    <ScrollView style={{backgroundColor: 'White'}}>
+    <ScrollView style={{backgroundColor: 'white'}}>
       <View style={styles.container}>
         <Text style={styles.textTitle}>App Menssager!</Text>
         <Text style={styles.textBody}>Entre se você possui uma conta!</Text>
@@ -19,10 +19,10 @@ const LoginScreen = props => {
         <View style={{width: '90%'}}>
           <Text style={[styles.textBody], {alignSelf: 'flex-end'}}>Esqueceu sua senha?</Text>
         </View>
-        <Submit title='LOGAR' color='teal'></Submit>
+        <Submit title='LOGAR' color='teal' onPress={() => props.navigation.navigate('main')} ></Submit>
         <View style={{flexDirection: 'row'}}>
               <Text style={styles.textBody}></Text>
-              <Text style={[styles.textBody, {color: 'teal'}]} onPress={() => props.navigation.navigate('CadastroScreen')}>Cadastrar Aqui</Text>
+              <Text style={[styles.textBody, {color: 'teal'}]} onPress={() => props.navigation.navigate('cadastro')}>Cadastrar-se Aqui!</Text>
         </View>
       </View>
     </ScrollView>

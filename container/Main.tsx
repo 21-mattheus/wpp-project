@@ -11,9 +11,10 @@ import Calls from '../screens/Calls';
 import ChatRoom from '../screens/ChatRoom/ChatRoomScreen';
 import ChatRoomScreen from '../screens/ChatRoom/ChatRoomScreen';
 import Contacts from '../screens/Contacts/Contacts';
-import { Camera } from '../screens/CameraScreen/CameraScreen';
+import CameraScreen from '../screens/CameraScreen/CameraScreen';
+//import { Camera } from '../screens/CameraScreen/CameraScreen';
 //import Login from '../screens/Login/Login';
-//import Contacts from '../screens/Contacts/Contacts';
+
 
 interface MainProps {}
 
@@ -54,7 +55,7 @@ const MaterialTopTab = () => {
                   <Icon name='camera' size={24} color={'#fff'}></Icon>
                 </View>
               )
-            }} component={Camera}></Tab.Screen>
+            }} component={CameraScreen}></Tab.Screen>
             <Tab.Screen name="conversa" component={Chats}></Tab.Screen>
             <Tab.Screen name="status" component={Status}></Tab.Screen>
             <Tab.Screen name="chamadas" component={Calls}></Tab.Screen>
@@ -105,7 +106,7 @@ const Main = ({}: MainProps) => {
               ></Stack.Screen>
 
               <Stack.Screen
-              name="contacts"
+              name="contatos"
               component={Contacts}
               options={{ title: "Selecione um contato"}}
               ></Stack.Screen>

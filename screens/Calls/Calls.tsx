@@ -43,6 +43,40 @@ export function Calls (props: CallsProps) {
 
          </View>
 
+         <View style= {styles.iconCallsContainer}>
+          
+          <ProfileCard 
+          title={'Ane'} 
+          subTitle={'Quarta-feira, 22:55 pm'} 
+          create={false}>
+          </ProfileCard>
+
+          <View style={styles.iconCalls}>
+            
+            <Entypo name='chevron-thin-down' size={15} color='red'></Entypo>
+            <Entypo name='phone' size={30} color='teal'></Entypo>
+            
+          </View>
+
+         </View>
+
+         <View style= {styles.iconCallsContainer}>
+          
+          <ProfileCard 
+          title={'Felipe'} 
+          subTitle={'Sexta-feira, 21:55 pm'} 
+          create={false}>
+          </ProfileCard>
+
+          <View style={styles.iconCalls}>
+            
+            <Entypo name='chevron-thin-down' size={15} color='red'></Entypo>
+            <Entypo name='phone' size={30} color='teal'></Entypo>
+            
+          </View>
+
+         </View>
+
       </View>
     );
 }

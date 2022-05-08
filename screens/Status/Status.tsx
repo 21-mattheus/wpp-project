@@ -44,6 +44,12 @@ export function Status (props: StatusProps) {
         create={false}>
         </ProfileCard>
 
+        <ProfileCard
+        title={'Ane'} 
+        subTitle={'Ontem, 22;30 pm'} 
+        create={false}>
+        </ProfileCard>
+
         <View style={styles.floatingActionContainer}>
           <View style={styles.create}>
             <Entypo name='edit' size={26} color='teal'></Entypo>

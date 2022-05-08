@@ -1,15 +1,13 @@
 import * as React from 'react';
 import { View, Text } from 'react-native';
+//import Chats from '../screens/Chats';
 
-export interface ContactsProps {
-}
+const ContactsScreen = props => {
+  return (
+    <View>
+      <Text>Contatos</Text>
+    </View>
+  )
+};
 
-export function Contacts (props: ContactsProps) {
-    return (
-      <View>
-         <Text>Contacts</Text>
-      </View>
-    );
-}
-
-export default Contacts;
+export default ContactsScreen;

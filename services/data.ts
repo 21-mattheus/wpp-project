@@ -31,4 +31,5 @@ export const listaUsuarios:listaUsuariosProps[] = [
         fotoPerfil: '',
         ultimoVisto: '17:00 pm',
     },
+
 ]

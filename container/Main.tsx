@@ -10,8 +10,8 @@ import Status from '../screens/Status';
 import Calls from '../screens/Calls';
 import ChatRoom from '../screens/ChatRoom/ChatRoomScreen';
 import ChatRoomScreen from '../screens/ChatRoom/ChatRoomScreen';
-import Contacts from '../screens/Contacts/Contacts';
-import CameraScreen from '../screens/CameraScreen/CameraScreen';
+//import Contacts from '../screens/Contacts/Contacts';
+import CameraScreen, { ContactScreen } from '../screens/ContactScreen/ContactScreen';
 //import { Camera } from '../screens/CameraScreen/CameraScreen';
 //import Login from '../screens/Login/Login';
 
@@ -49,16 +49,10 @@ const MaterialTopTab = () => {
             indicatorStyle: {backgroundColor: '#fff'}
           }}
         >
-            <Tab.Screen name="camera" options={{
-              tabBarLabel: () => (
-                <View>
-                  <Icon name='camera' size={24} color={'#fff'}></Icon>
-                </View>
-              )
-            }} component={CameraScreen}></Tab.Screen>
-            <Tab.Screen name="conversa" component={Chats}></Tab.Screen>
-            <Tab.Screen name="status" component={Status}></Tab.Screen>
-            <Tab.Screen name="chamadas" component={Calls}></Tab.Screen>
+            <Tab.Screen name="Contatos" component={ContactScreen}></Tab.Screen>
+            <Tab.Screen name="Conversas" component={Chats}></Tab.Screen>
+            <Tab.Screen name="Status" component={Status}></Tab.Screen>
+            <Tab.Screen name="Chamadas" component={Calls}></Tab.Screen>
         </Tab.Navigator>
     )
 }
@@ -104,14 +98,6 @@ const Main = ({}: MainProps) => {
               component={ChatRoomScreen}
               options={{ title: "Chat Room"}}
               ></Stack.Screen>
-
-              <Stack.Screen
-              name="contatos"
-              component={Contacts}
-              options={{ title: "Selecione um contato"}}
-              ></Stack.Screen>
-
-              
                    
           </Stack.Navigator>
     </NavigationContainer>

@@ -8,7 +8,7 @@ import {Feather as Icon} from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import ChatRoom from '../ChatRoom/ChatRoomScreen';
 import Contacts from '../Contacts/Contacts';
-
+import {AdMobBanner, AdMobInterstitial, AdMobRewarded} from "expo-ads-admob";
 
 const {width:wWidth, height:wHeight} = Dimensions.get('window');
 
@@ -44,6 +44,12 @@ const Chats = ({}: ChatsProps) => {
           </TouchableWithoutFeedback>
         ); 
     };
+
+    <AdMobBanner
+      adUnitID='	ca-app-pub-3940256099942544/6300978111'
+      bannerSize='fullBanner'
+      >
+    </AdMobBanner>
 
     const navigation = useNavigation
 

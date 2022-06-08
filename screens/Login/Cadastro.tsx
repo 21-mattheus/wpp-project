@@ -1,23 +1,48 @@
 import * as React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { useState } from 'react';
+import { View, Text, StyleSheet, ScrollView, Button } from 'react-native';
 import { Input } from 'react-native-elements/dist/input/Input';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 
 import Inputs from '../../components/Inputs';
 import Submit from '../../components/Submit';
+import { TextInput } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
 
 const CadastroScreen = props => {
+
+  const [email, setEmail] = useState('')
+  const [senha, setPassword] = useState('')
+
+  const auth = getAuth();
+
+  createUserWithEmailAndPassword(auth, email, senha)
+    .then(usuario => console.log('Usuario criado com sucesso'))
+    .catch(error => console.log('Usuario não criado'))
+
     return (
         <ScrollView style={{backgroundColor: 'white'}}>
           <View style={styles.container}>
             <Text style={styles.textTitle}>Vamos começar!</Text>
             <Text style={styles.textBody}>Crie uma conta para acessar ao Menssager!</Text>
           <View style={{marginTop: 20}}></View>
-          <Inputs name="Nome" icon="user"></Inputs>
-          <Inputs name="Email" icon="user"></Inputs>
-          <Inputs name="Senha" icon="lock" pass={true}></Inputs>
-          <Submit title='CRIAR CONTA' color='teal'></Submit>
+          
+          <Input style={{backgroundColor: 'white',  paddingHorizontal: 15, paddingVertical: 10, borderRadius: 10, marginTop: 5}}
+          placeholder='Email'
+          icon="user" 
+          value={email}
+          onChangeText={text => setEmail(text)}
+          ></Input>
+          
+          <Input style={{backgroundColor: 'white',  paddingHorizontal: 15, paddingVertical: 10, borderRadius: 10, marginTop: 5}}
+          placeholder='Senha'
+          icon="lock" 
+          value={senha}
+          onChangeText={text => setPassword(text)}
+          ></Input>
+          <Button title='CRIAR CONTA' color='teal'></Button>
           <View style={{flexDirection: 'row'}}>
-              <Text style={[styles.textBody, {color: 'teal'}]} onPress={() => props.navigation.navigate('login')}>Clique aqui para Logar.</Text>
+              <Text style={[styles.textBody, {color: 'teal'}]} onPress={() => props.navigation.navigate('Login')}>Clique aqui para Logar.</Text>
           </View>
           </View>
         </ScrollView>

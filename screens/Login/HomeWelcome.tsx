@@ -11,13 +11,18 @@ const HomeWelcome = () => {
 
     return (
         <View style={styles.container}>
-            <Text style={{fontSize: 20}}>Email: (auth.currentUser?.email)</Text>
+            <Text style={{fontSize: 20}}> Bem-vindo: (auth.currentUser?.email)</Text>
+            <TouchableOpacity style={styles.button}>
+                <Text style={styles.buttontText} onPress={() => props.navigation.navigate('Login')}
+                >SAIR
+                </Text>
+            </TouchableOpacity>
             <TouchableOpacity style={styles.button}>
                 <Text style={styles.buttontText} onPress={() => {
                     const auth = getAuth();
                     auth.signOut
-                    props.navigation.navigate('Login')
-                }}>SAIR
+                    props.navigation.navigate('Chats')
+                }}>CONTINUAR
                 </Text>
             </TouchableOpacity>
         </View>

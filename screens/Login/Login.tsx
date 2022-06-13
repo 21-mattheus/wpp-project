@@ -13,6 +13,7 @@ import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import Inputs from '../../components/Inputs';
 import Submit from '../../components/Submit';
 import { useEffect, useState } from 'react';
+import { AdMobBanner } from 'expo-ads-admob';
 
 const LoginScreen = props => {
 
@@ -69,6 +70,11 @@ const LoginScreen = props => {
               <Text style={[styles.textBody, {color: 'teal'}]} onPress={() => props.navigation.navigate('Cadastro')}>Cadastrar-se Aqui!</Text>
         </View>
       </View>
+      <AdMobBanner
+      adUnitID='ca-app-pub-3940256099942544/6300978111'
+      bannerSize='fullBanner'
+      >
+    </AdMobBanner>
     </ScrollView>
   )
 }

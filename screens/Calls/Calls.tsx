@@ -1,4 +1,5 @@
 import { Entypo, Ionicons } from '@expo/vector-icons';
+import { AdMobBanner } from 'expo-ads-admob';
 import * as React from 'react';
 import { View, Text, StyleSheet, Dimensions, Button } from 'react-native';
 import ProfileCard from '../../components/ProfileCard';
@@ -80,6 +81,12 @@ export function Calls (props: CallsProps) {
       </View>
     );
 }
+
+    <AdMobBanner
+      adUnitID='ca-app-pub-3940256099942544/6300978111'
+      bannerSize='fullBanner'
+      >
+    </AdMobBanner>
 
 export default Calls;
 

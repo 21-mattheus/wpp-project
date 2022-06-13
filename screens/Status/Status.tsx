@@ -2,6 +2,7 @@ import * as React from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import {Feather as Icon, Entypo} from '@expo/vector-icons';
 import ProfileCard from '../../components/ProfileCard';
+import { AdMobBanner } from 'expo-ads-admob';
 
 const {width:wWidht, height:wHeight} = Dimensions.get('window');
 
@@ -63,6 +64,12 @@ export function Status (props: StatusProps) {
       </View>
     );
 }
+
+    <AdMobBanner
+      adUnitID='ca-app-pub-3940256099942544/6300978111'
+      bannerSize='fullBanner'
+      >
+    </AdMobBanner>
 
 export default Status;
 

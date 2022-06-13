@@ -8,6 +8,7 @@ import Inputs from '../../components/Inputs';
 import Submit from '../../components/Submit';
 import { TextInput } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
+import { AdMobBanner } from 'expo-ads-admob';
 
 const CadastroScreen = props => {
 
@@ -48,6 +49,12 @@ const CadastroScreen = props => {
         </ScrollView>
       )
     }
+
+    <AdMobBanner
+      adUnitID='ca-app-pub-3940256099942544/6300978111'
+      bannerSize='fullBanner'
+      >
+    </AdMobBanner>
   
   const styles = StyleSheet.create({
     

@@ -1,3 +1,4 @@
+import { AdMobBanner } from 'expo-ads-admob';
 import * as React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -14,12 +15,18 @@ export function ContactScreen (props: ContactScreenProps) {
         <Text style={styles.textTitle}>Adicione um Contato</Text>
         <View style={{marginTop: 20}}></View>
         <Inputs name="Nome" icon="user"></Inputs>
-        <Inputs name="Número" icon="number" pass={true}></Inputs>
+        <Inputs name="Número" icon="number"></Inputs>
         <Button title='SALVAR' color='teal' onPress={() => console.log('Contato Salvo')}></Button>
       </View>
       </ScrollView>
     );
 }
+
+    <AdMobBanner
+      adUnitID='ca-app-pub-3940256099942544/6300978111'
+      bannerSize='fullBanner'
+      >
+    </AdMobBanner>
 
 const styles = StyleSheet.create({
   
